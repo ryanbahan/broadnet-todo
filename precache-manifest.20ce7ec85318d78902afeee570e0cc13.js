@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "21d1581189cd73bee6241f944196ffbd",
+    "revision": "cec6521db8dfa9878d96efab40d25a8a",
     "url": "/broadnet-todo/index.html"
   },
   {
-    "revision": "b151535f0f0b6ffe6992",
-    "url": "/broadnet-todo/static/css/main.cc3cfafc.chunk.css"
+    "revision": "9bd68be78ad572124cba",
+    "url": "/broadnet-todo/static/css/main.22adbb1c.chunk.css"
   },
   {
     "revision": "09c814fbed5248fc086f",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/broadnet-todo/static/js/2.62053479.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b151535f0f0b6ffe6992",
-    "url": "/broadnet-todo/static/js/main.bf03ed0a.chunk.js"
+    "revision": "9bd68be78ad572124cba",
+    "url": "/broadnet-todo/static/js/main.1ca88cf4.chunk.js"
   },
   {
     "revision": "91282239487d3f7ef613",
