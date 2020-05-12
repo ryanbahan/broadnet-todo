@@ -20,6 +20,7 @@ function Form() {
 
   function createTaskCard(createCard) {
     const taskCard = {
+      id: Date.now() + Math.random(),
       title: title,
       taskItems: taskItems,
     }
@@ -83,8 +84,6 @@ function Form() {
           >
             Clear All
           </button>
-          <hr />
-          <button type="button" className="filter-btn">Filter By Urgency</button>
         </form>
       )}
     </MyContext.Consumer>

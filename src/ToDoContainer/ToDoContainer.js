@@ -32,7 +32,8 @@ function ToDoContainer() {
   function generateHTML(cards) {
     return cards.map(card =>
       <ToDoCard
-        key={Date.now() + Math.random()}
+        key={card.id}
+        id={card.id}
         title={card.title}
         taskItems={card.taskItems}
       />

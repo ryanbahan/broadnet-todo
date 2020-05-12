@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MyContext } from '../Context';
 import './ToDoCard.css';
 
-function ToDoCard({ title, taskItems }) {
+function ToDoCard({ id, title, taskItems }) {
   const [checkedInputs, updateChecked] = useState([]);
 
   function isChecked(item) {
@@ -47,8 +47,7 @@ function ToDoCard({ title, taskItems }) {
             </ul>
           </div>
           <div className="card-bottom">
-            <button>Urgent</button>
-            <button>Delete</button>
+            <button onClick={() => context.deleteCard(id)}>Delete</button>
           </div>
         </article>
       )}
