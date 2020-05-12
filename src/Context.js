@@ -4,7 +4,33 @@ export const MyContext = React.createContext();
 
 export default class MyProvider extends React.Component {
   state = {
-    cards: [{id: Date.now() + Math.random(), title: "Default Card", taskItems: ["Land this job!", "eat sushi"]}]
+    cards: [
+      {
+        id: Date.now() + Math.random(),
+        title: "Default Card",
+        taskItems: ["Land this job!", "eat sushi"]
+      },
+      {
+        id: Date.now() + Math.random(),
+        title: "Default Card",
+        taskItems: ["Land this job!", "eat sushi"]
+      },
+      {
+        id: Date.now() + Math.random(),
+        title: "Default Card",
+        taskItems: ["Land this job!", "eat sushi"]
+      },
+      {
+        id: Date.now() + Math.random(),
+        title: "Default Card",
+        taskItems: ["Land this job!", "eat sushi"]
+      },
+      {
+        id: Date.now() + Math.random(),
+        title: "Default Card",
+        taskItems: ["Land this job!", "eat sushi"]
+      },
+    ]
   }
 
   addCard = (card) => {

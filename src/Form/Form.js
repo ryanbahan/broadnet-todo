@@ -9,8 +9,13 @@ function Form() {
   const [formError, updateFormError] = useState(false);
 
   function addTask() {
-    updateTaskItems([...taskItems, taskItem]);
-    setTaskItem("");
+    if (taskItem.length) {
+      updateTaskItems([...taskItems, taskItem]);
+      setTaskItem("");
+      updateFormError(false);
+    } else {
+      updateFormError("Please fill out the field before submitting.");
+    }
   }
 
   function clearAll() {
@@ -88,7 +93,7 @@ function Form() {
             className="clear-btn"
             onClick={clearAll}
           >
-            Clear All
+            Clear Task Items
           </button>
           {formError && <div>{formError}</div>}
         </form>

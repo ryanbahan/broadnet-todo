@@ -15,7 +15,7 @@ function ToDoCard({ id, title, taskItems }) {
 
   function toggleChecked(item) {
     let updatedItems;
-    
+
     if (checkedInputs.checkedInputs.find(input => input === item)) {
       updatedItems = checkedInputs.checkedInputs.filter(input => input !== item);
     } else {
@@ -48,15 +48,13 @@ function ToDoCard({ id, title, taskItems }) {
       {context => (
         <article className="todo-card">
           <div className="card-top">
-            <p>{ title }</p>
+            <p className="card-title">{ title }</p>
+            <button onClick={() => context.deleteCard(id)}>Delete</button>
           </div>
           <div className="card-list-items">
             <ul>
               {renderTaskItems(taskItems)}
             </ul>
-          </div>
-          <div className="card-bottom">
-            <button onClick={() => context.deleteCard(id)}>Delete</button>
           </div>
         </article>
       )}
