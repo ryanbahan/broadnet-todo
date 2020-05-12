@@ -6,6 +6,7 @@ function Form() {
   const [title, setTitle] = useState("");
   const [taskItem, setTaskItem] = useState("");
   const [taskItems, updateTaskItems] = useState([]);
+  const [formError, updateFormError] = useState(false);
 
   function addTask() {
     updateTaskItems([...taskItems, taskItem]);
@@ -16,16 +17,21 @@ function Form() {
     setTitle("");
     setTaskItem("");
     updateTaskItems([]);
+    updateFormError(false);
   }
 
   function createTaskCard(createCard) {
-    const taskCard = {
-      id: Date.now() + Math.random(),
-      title: title,
-      taskItems: taskItems,
+    if (title.length && taskItems.length) {
+      const taskCard = {
+        id: Date.now() + Math.random(),
+        title: title,
+        taskItems: taskItems,
+      }
+      createCard(taskCard);
+      clearAll();
+    } else {
+      updateFormError("Please fill out all required fields.");
     }
-    createCard(taskCard);
-    clearAll();
   }
 
   function getTaskItems() {
@@ -84,6 +90,7 @@ function Form() {
           >
             Clear All
           </button>
+          {formError && <div>{formError}</div>}
         </form>
       )}
     </MyContext.Consumer>
