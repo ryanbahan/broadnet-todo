@@ -1,16 +1,22 @@
 import React from 'react';
 import './ToDoCard.css';
 
-function ToDoCard() {
+function ToDoCard({ title, taskItems }) {
+
+  function renderTaskItems(taskItems) {
+    return taskItems.map(item => (
+      <li key={Date.now() + Math.random()}>{item}</li>
+    ))
+  }
+
   return (
     <article className="todo-card">
       <div className="card-top">
-        <p>Task Title</p>
+        <p>{ title }</p>
       </div>
       <div className="card-list-items">
         <ul>
-          <li><input type="checkbox" /> item a</li>
-          <li><input type="checkbox" /> item b</li>
+          {renderTaskItems(taskItems)}
         </ul>
       </div>
       <div className="card-bottom">

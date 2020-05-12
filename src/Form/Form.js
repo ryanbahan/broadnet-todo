@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MyContext } from '../Context';
 import './Form.css';
 
 function Form() {
@@ -11,42 +12,82 @@ function Form() {
     setTaskItem("");
   }
 
+  function clearAll() {
+    setTitle("");
+    setTaskItem("");
+    updateTaskItems([]);
+  }
+
+  function createTaskCard(createCard) {
+    const taskCard = {
+      title: title,
+      taskItems: taskItems,
+    }
+    createCard(taskCard);
+    clearAll();
+  }
+
+  function getTaskItems() {
+    return taskItems.map(item => <li key={Date.now() + Math.random()}>{item}</li>)
+  }
+
   return (
-    <form className="form">
-      <div className="input-label-container">
-      <label for="title">Task title</label>
-      <input
-        type="text"
-        name="title"
-        id="title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      </div>
-      <div className="input-label-container">
-      <label for="item">Task item</label>
-      <div className="input-btn-container">
-      <input
-        type="text"
-        name="item"
-        id="item"
-        value={taskItem}
-        onChange={(e) => setTaskItem(e.target.value)}
-      />
-      <button
-        type="button"
-        className="add-item-btn"
-        onClick={addTask}
-      >
-        +
-      </button>
-      </div>
-      </div>
-      <button type="button" className="make-task-btn">Make Task List</button>
-      <button type="button" className="clear-btn">Clear All</button>
-      <hr />
-      <button type="button" className="filter-btn">Filter By Urgency</button>
-    </form>
+    <MyContext.Consumer>
+      {context => (
+        <form className="form">
+          <div className="input-label-container">
+          <label htmlFor="title">Task title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          </div>
+          <div className="task-items">
+            <ul>
+              {getTaskItems()}
+            </ul>
+          </div>
+          <div className="input-label-container">
+          <label htmlFor="item">Task item</label>
+          <div className="input-btn-container">
+          <input
+            type="text"
+            name="item"
+            id="item"
+            value={taskItem}
+            onChange={(e) => setTaskItem(e.target.value)}
+          />
+          <button
+            type="button"
+            className="add-item-btn"
+            onClick={addTask}
+          >
+            +
+          </button>
+          </div>
+          </div>
+          <button
+            type="button"
+            className="make-task-btn"
+            onClick={() => createTaskCard(context.addCard)}
+          >
+            Make Task List
+          </button>
+          <button
+            type="button"
+            className="clear-btn"
+            onClick={clearAll}
+          >
+            Clear All
+          </button>
+          <hr />
+          <button type="button" className="filter-btn">Filter By Urgency</button>
+        </form>
+      )}
+    </MyContext.Consumer>
   );
 }
 
