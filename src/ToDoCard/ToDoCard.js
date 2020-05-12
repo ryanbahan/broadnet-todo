@@ -3,10 +3,10 @@ import { MyContext } from '../Context';
 import './ToDoCard.css';
 
 function ToDoCard({ id, title, taskItems }) {
-  const [checkedInputs, updateChecked] = useState([]);
+  const [checkedInputs, updateChecked] = useState({id: id, checkedInputs: []});
 
   function isChecked(item) {
-    if (checkedInputs.find(input => input === item)) {
+    if (checkedInputs.checkedInputs.find(input => input === item)) {
       return true;
     } else {
       return false;
@@ -14,11 +14,20 @@ function ToDoCard({ id, title, taskItems }) {
   }
 
   function toggleChecked(item) {
-    if (checkedInputs.find(input => input === item)) {
-      updateChecked(checkedInputs.filter(input => input !== item));
+    let updatedItems;
+    
+    if (checkedInputs.checkedInputs.find(input => input === item)) {
+      updatedItems = checkedInputs.checkedInputs.filter(input => input !== item);
     } else {
-      updateChecked([...checkedInputs, item]);
+      updatedItems = [...checkedInputs.checkedInputs, item];
     }
+
+    const updatedInput = {
+      id: id,
+      checkedInputs: updatedItems,
+    }
+
+    updateChecked(updatedInput);
   }
 
   function renderTaskItems(taskItems) {
