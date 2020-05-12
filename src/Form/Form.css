@@ -1,8 +1,51 @@
+.add-item-btn {
+  width: 2.5rem;
+}
+
 .form {
   border: solid 1px black;
   display: flex;
   flex-direction: column;
+  font-size: 1.25rem;
   height: 100vh;
   min-width: 15rem;
+  padding: 2.5rem;
   width: 25vw;
+}
+
+.form button {
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}
+
+.form input {
+  font-size: 1.25rem;
+}
+
+.form label {
+  margin-bottom: 0.5rem;
+}
+
+.input-label-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 1rem 0;
+}
+
+.input-btn-container {
+  display: flex;
+}
+
+.input-btn-container input {
+  flex-grow: 1;
+}
+
+.make-task-btn,
+.clear-btn {
+  margin-bottom: 1rem;
+}
+
+.filter-btn {
+  margin-top: 1rem;
 }
