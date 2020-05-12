@@ -8,9 +8,9 @@
   flex-direction: column;
   font-size: 1.25rem;
   height: 100vh;
-  min-width: 15rem;
   padding: 2.5rem;
-  width: 25vw;
+  width: 20rem;
+  position: fixed;
 }
 
 .form button {
