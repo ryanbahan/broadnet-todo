@@ -8,6 +8,15 @@
   padding: 1rem;
 }
 
+.list-row {
+  display: flex;
+  align-items: center;
+}
+
+.list-row input {
+  margin-right: 0.5rem;
+}
+
 .todo-card {
   border: solid 1px black;
   margin: 2.5rem 0;

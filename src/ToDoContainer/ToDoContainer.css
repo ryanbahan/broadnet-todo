@@ -1,7 +1,6 @@
 .todo-container {
   flex-grow: 1;
   display: flex;
-  border: solid 2px black;
   margin-left: 20rem;
 }
 

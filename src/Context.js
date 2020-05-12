@@ -4,7 +4,7 @@ export const MyContext = React.createContext();
 
 export default class MyProvider extends React.Component {
   state = {
-    cards: []
+    cards: [{title: "Default Card", taskItems: ["Land this job!", "eat sushi"]}]
   }
 
   addCard = (card) => {
