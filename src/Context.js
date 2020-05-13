@@ -29,13 +29,20 @@ export default class MyProvider extends React.Component {
     this.setState({cards: updatedCards});
   }
 
+  updateListItems = (listItems) => {
+    const card = this.state.cards.find(card => card.id === listItems.id);
+    card.taskItems = listItems.items;
+    localStorage.setItem('broadnet-todo', JSON.stringify(this.state.cards));
+  }
+
   render() {
     return (
       <MyContext.Provider value={
         {
           state: this.state,
           addCard: this.addCard,
-          deleteCard: this.deleteCard
+          deleteCard: this.deleteCard,
+          updateListItems: this.updateListItems,
         }
       }>
         {this.props.children}

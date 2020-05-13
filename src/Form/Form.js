@@ -5,7 +5,7 @@ import './Form.css';
 
 function Form() {
   const [title, setTitle] = useState("");
-  const [taskItem, setTaskItem] = useState({id: uuidv4(), text: ""});
+  const [taskItem, setTaskItem] = useState({id: uuidv4(), text: "", checked: false});
   const [taskItems, updateTaskItems] = useState([]);
   const [formError, updateFormError] = useState(false);
 

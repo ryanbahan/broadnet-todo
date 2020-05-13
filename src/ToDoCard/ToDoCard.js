@@ -13,7 +13,7 @@ function ToDoCard({ id, title, taskItems }) {
     }
   }
 
-  function toggleChecked(item) {
+  function toggleChecked(item, updateState) {
     let updatedItems;
 
     if (checkedInputs.checkedInputs.find(input => input === item)) {
@@ -22,21 +22,24 @@ function ToDoCard({ id, title, taskItems }) {
       updatedItems = [...checkedInputs.checkedInputs, item];
     }
 
-    const updatedInput = {
+    item.checked = !item.checked;
+
+    const updatedInputs = {
       id: id,
       checkedInputs: updatedItems,
     }
 
-    updateChecked(updatedInput);
+    updateChecked(updatedInputs);
+    updateState({id: id, items: taskItems})
   }
 
-  function renderTaskItems(taskItems) {
+  function renderTaskItems(taskItems, updateState) {
     return taskItems.map(item => (
       <div className="list-row" key={item.id}>
         <input
           type="checkbox"
-          defaultChecked={() => isChecked(item)}
-          onClick={() => toggleChecked(item)}
+          defaultChecked={item.checked}
+          onClick={() => toggleChecked(item, updateState)}
         />
         <li>{item.text}</li>
       </div>
@@ -53,7 +56,7 @@ function ToDoCard({ id, title, taskItems }) {
           </div>
           <div className="card-list-items">
             <ul>
-              {renderTaskItems(taskItems)}
+              {renderTaskItems(taskItems, context.updateListItems)}
             </ul>
           </div>
         </article>
