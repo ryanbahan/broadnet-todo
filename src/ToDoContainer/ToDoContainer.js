@@ -11,9 +11,9 @@ function ToDoContainer() {
 
     cards.forEach(card => {
       if (columnA.length > columnB.length) {
-        columnB.push(card);
+        columnB.unshift(card);
       } else {
-        columnA.push(card);
+        columnA.unshift(card);
       }
     })
 
