@@ -55,3 +55,9 @@
   list-style: none;
   padding-left: 1rem;
 }
+
+@media only screen and (max-width: 900px) {
+  .todo-card {
+    width: 100%;
+  }
+}

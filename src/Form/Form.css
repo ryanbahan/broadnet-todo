@@ -95,3 +95,11 @@
   margin-bottom: 0.5rem;
   margin-left: 1.25rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .form {
+    width: 100vw;
+    height: 25rem;
+    bottom: 0;
+  }
+}
