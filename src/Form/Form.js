@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { MyContext } from '../Context';
 import './Form.css';
 
 function Form() {
   const [title, setTitle] = useState("");
-  const [taskItem, setTaskItem] = useState("");
+  const [taskItem, setTaskItem] = useState({id: uuidv4(), text: ""});
   const [taskItems, updateTaskItems] = useState([]);
   const [formError, updateFormError] = useState(false);
 
   function addTask() {
-    if (taskItem.length) {
+    if (taskItem.text.length) {
       updateTaskItems([...taskItems, taskItem]);
-      setTaskItem("");
+      setTaskItem({id: uuidv4(), text: ""});
       updateFormError(false);
     } else {
       updateFormError("Please fill out the field before submitting.");
@@ -20,7 +21,7 @@ function Form() {
 
   function clearAll() {
     setTitle("");
-    setTaskItem("");
+    setTaskItem({id: uuidv4(), text: ""});
     updateTaskItems([]);
     updateFormError(false);
   }
@@ -28,7 +29,7 @@ function Form() {
   function createTaskCard(createCard) {
     if (title.length && taskItems.length) {
       const taskCard = {
-        id: Date.now() + Math.random(),
+        id: uuidv4(),
         title: title,
         taskItems: taskItems,
       }
@@ -40,7 +41,7 @@ function Form() {
   }
 
   function getTaskItems() {
-    return taskItems.map(item => <li key={Date.now() + Math.random()}>{item}</li>)
+    return taskItems.map(item => <li key={item.id}>{item.text}</li>)
   }
 
   return (
@@ -69,8 +70,8 @@ function Form() {
             type="text"
             name="item"
             id="item"
-            value={taskItem}
-            onChange={(e) => setTaskItem(e.target.value)}
+            value={taskItem.text}
+            onChange={(e) => setTaskItem({id: taskItem.id, text: e.target.value})}
           />
           <button
             type="button"

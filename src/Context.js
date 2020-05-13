@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export const MyContext = React.createContext();
 
@@ -6,34 +7,34 @@ export default class MyProvider extends React.Component {
   state = {
     cards: [
       {
-        id: Date.now() + Math.random(),
+        id: uuidv4(),
         title: "Default Card",
-        taskItems: ["Land this job!", "eat sushi"]
+        taskItems: [{id: uuidv4(), text: "Land this job!"}, {id: uuidv4(), text: "eat sushi"}]
       },
       {
-        id: Date.now() + Math.random(),
+        id: uuidv4(),
         title: "Today's Workout",
-        taskItems: ["Bench Press 3x5", "Overhead Lift 5x5", "Squats 5x10"]
+        taskItems: [{id: uuidv4(), text: "Bench Press 3x5"}, {id: uuidv4(), text: "Overhead Lift 5x5"}, {id: uuidv4(), text: "Squats 5x10"}]
       },
       {
-        id: Date.now() + Math.random(),
+        id: uuidv4(),
         title: "Grocery List",
-        taskItems: ["Bananas", "Broccoli", "Chicken", "Bread", "Milk"]
+        taskItems: [{id: uuidv4(), text: "Bananas"}, {id: uuidv4(), text: "Broccoli"}, {id: uuidv4(), text: "Chicken"}, {id: uuidv4(), text: "Bread"}, {id: uuidv4(), text: "Milk"}]
       },
       {
-        id: Date.now() + Math.random(),
+        id: uuidv4(),
         title: "Weekend to-dos",
-        taskItems: ["Mow Lawn", "Fix Sink"]
+        taskItems: [{id: uuidv4(), text: "Mow Lawn"}, {id: uuidv4(), text: "Fix Sink"}]
       },
       {
-        id: Date.now() + Math.random(),
+        id: uuidv4(),
         title: "Next Week",
-        taskItems: ["Apply to Broadnet"]
+        taskItems: [{id: uuidv4(), text: "Apply to Broadnet"}]
       },
       {
-        id: Date.now() + Math.random(),
+        id: uuidv4(),
         title: "Dev Tasks",
-        taskItems: ["Bug fixes", "New Features"]
+        taskItems: [{id: uuidv4(), text: "Bug fixes"}, {id: uuidv4(), text: "New features"}]
       },
     ]
   }

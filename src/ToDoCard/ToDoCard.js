@@ -32,13 +32,13 @@ function ToDoCard({ id, title, taskItems }) {
 
   function renderTaskItems(taskItems) {
     return taskItems.map(item => (
-      <div className="list-row">
+      <div className="list-row" key={item.id}>
         <input
           type="checkbox"
           defaultChecked={() => isChecked(item)}
           onClick={() => toggleChecked(item)}
         />
-        <li key={Date.now() + Math.random()}>{item}</li>
+        <li>{item.text}</li>
       </div>
     ))
   }
