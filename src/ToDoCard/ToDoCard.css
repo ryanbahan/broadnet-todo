@@ -8,8 +8,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  border-bottom: solid 5px #F64C72;
+  border-bottom: solid 5px #2B3E50;
   margin-bottom: 1rem;
+  background-color: #ECF0F1;
 }
 
 .list-row {
@@ -33,17 +34,18 @@
 
 .todo-card button {
   padding: 0.5rem;
-  border-radius: 5px;
   cursor: pointer;
-  color: #242582;
-  border-color: #242582;
+  color: #E74C3C;
+  border: none;
+  background-color: #ECF0F1;
   font-weight: 500;
+  font-size: 1.25rem;
 }
 
-.todo-card button:hover {
-  background-color: #242582;
+/* .todo-card button:hover {
+  background-color: #E74C3C;
   color: #fff;
-}
+} */
 
 .todo-card li {
   margin: 0.5rem 0;

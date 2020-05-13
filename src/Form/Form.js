@@ -49,7 +49,8 @@ function Form() {
       {context => (
         <form className="form">
           <div className="input-label-container">
-          <label htmlFor="title">Task title</label>
+          <h2>To-Do List</h2>
+          <label htmlFor="title">First, create a task list</label>
           <input
             type="text"
             name="title"
@@ -58,13 +59,8 @@ function Form() {
             onChange={(e) => setTitle(e.target.value)}
           />
           </div>
-          <div className="task-items">
-            <ul>
-              {getTaskItems()}
-            </ul>
-          </div>
           <div className="input-label-container">
-          <label htmlFor="item">Task item</label>
+          <label htmlFor="item">Next, add your tasks</label>
           <div className="input-btn-container">
           <input
             type="text"
@@ -81,6 +77,12 @@ function Form() {
             +
           </button>
           </div>
+          <div className="task-items">
+            <p>{title}</p>
+            <ul>
+              {getTaskItems()}
+            </ul>
+          </div>
           </div>
           <button
             type="button"
@@ -89,13 +91,12 @@ function Form() {
           >
             Make Task List
           </button>
-          <button
-            type="button"
+          <a
             className="clear-btn"
             onClick={clearAll}
           >
             Clear Task Items
-          </button>
+          </a>
           {formError && <div>{formError}</div>}
         </form>
       )}

@@ -1,9 +1,20 @@
+.clear-btn {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #E74C3C;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .add-item-btn {
   width: 2.5rem;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  margin-left: -2.5px;
 }
 
 .form {
-  background-color: #EEE;
+  background-color: #ECF0F1;
   display: flex;
   flex-direction: column;
   font-size: 1.25rem;
@@ -18,14 +29,17 @@
   font-size: 1.25rem;
   font-weight: 600;
   padding: 0.5rem;
-  border-radius: 0.25rem;
-  border-color: #2F2FA2;
-  background-color: #2F2FA2;
+  border-color: #1ABC9C;
+  background-color: #1ABC9C;
   color: #FFF;
 }
 
 .form button:hover {
   box-shadow: 0px 1px 2.5px rgba(0,0,0,0.5);
+}
+
+.form h2 {
+  margin-bottom: 1.5rem;
 }
 
 .form input {
@@ -55,6 +69,7 @@
 
 .make-task-btn,
 .clear-btn {
+  border-radius: 0.25rem;
   margin-bottom: 1rem;
 }
 
@@ -62,9 +77,17 @@
   margin-top: 1rem;
 }
 
+.task-items {
+  margin-top: 1rem;
+}
+
 .task-items li {
   font-size: 1rem;
   padding: 0.25rem 0;
+}
+
+.task-items p {
+  font-weight: 600;
 }
 
 .task-items ul {

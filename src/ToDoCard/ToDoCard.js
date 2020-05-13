@@ -52,7 +52,7 @@ function ToDoCard({ id, title, taskItems }) {
         <article className="todo-card">
           <div className="card-top">
             <p className="card-title">{ title }</p>
-            <button onClick={() => context.deleteCard(id)}>Delete</button>
+            <button onClick={() => context.deleteCard(id)}>x</button>
           </div>
           <div className="card-list-items">
             <ul>
