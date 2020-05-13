@@ -9,11 +9,15 @@ export default class MyProvider extends React.Component {
   }
 
   componentDidMount() {
-    if (!sessionStorage.getItem('broadnet-todo')) {
-      sessionStorage.setItem('broadnet-todo', JSON.stringify(data));
+    if (!localStorage.getItem('broadnet-todo')) {
+      localStorage.setItem('broadnet-todo', JSON.stringify(data));
     }
-    const cards = JSON.parse(sessionStorage.getItem('broadnet-todo'));
+    const cards = JSON.parse(localStorage.getItem('broadnet-todo'));
     this.setState({cards: cards});
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('broadnet-todo', JSON.stringify(this.state.cards));
   }
 
   addCard = (card) => {
